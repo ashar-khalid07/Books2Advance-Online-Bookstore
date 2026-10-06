@@ -1,22 +1,21 @@
 # Online Bookstore – Books2Advance
 
-Books2Advance is a front-end bookstore project that presents a responsive catalogue of four books and a demonstration checkout flow. The checkout validates Mastercard-style test data in the browser and submits it to an MMU teaching API; it is not a production payment system and should only be used with test details.
+Books2Advance is a front-end bookstore project with a responsive four-book catalogue and a demonstration checkout flow. The public portfolio version keeps the checkout entirely in the browser: it validates test input locally, stores only the final four digits temporarily for the success page, and sends no payment-card data to any external service.
 
 ## Features
 
 - Responsive four-book catalogue with cover images, descriptions and prices
 - Mobile navigation menu controlled with JavaScript
-- Client-side Mastercard number, expiry-date and CVV validation
-- `fetch` request to the supplied university teaching payment API
-- Success page that displays only the last four submitted card digits using `sessionStorage`
-- Clear validation and network-error messages
+- Client-side Mastercard-style test-number, expiry-date and security-code validation
+- Demo checkout flow with no external payment request
+- Success page that displays only the final four digits using `sessionStorage`
+- Clear validation messages for invalid form input
 
 ## Technologies
 
 - HTML5
 - CSS3
 - JavaScript
-- Fetch API
 - Web Storage (`sessionStorage`)
 
 ## Screenshots
@@ -33,7 +32,7 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-The catalogue and client-side interface run locally. The checkout submission depends on the external MMU teaching API referenced in `js/payment.js`, so that final request may be unavailable outside the original teaching environment. Do not enter real payment-card details.
+Use test data only. This is a demonstration checkout and does not process real payments.
 
 ## Project Structure
 
@@ -42,19 +41,23 @@ index.html        Catalogue page
 pay.html          Demonstration checkout form
 success.html      Success/confirmation page
 css/styles.css    Responsive styling
-js/               Navigation, validation, API request and success-page logic
+js/               Navigation, validation and success-page logic
 images/           Book-cover assets
 screenshots/      Verified portfolio screenshot
 ```
 
 ## Testing
 
-No automated test suite is included. During portfolio preparation, the local catalogue, responsive navigation and JavaScript validation functions were browser-checked. The external payment request was mocked for that check so no card data was transmitted.
+No automated test suite is included. During portfolio preparation, the local catalogue, responsive navigation and JavaScript validation functions were browser-checked.
 
 ## What I Worked On
 
-This was an individual project. My work represented here includes the page structure, responsive CSS, mobile navigation, checkout validation, `fetch` request flow and success-page handling.
+This was an individual project. My work represented here includes the page structure, responsive CSS, mobile navigation, checkout validation and success-page handling.
+
+## Security / Portfolio Cleanup
+
+The original coursework version submitted card details from the browser to a university teaching endpoint. That behaviour is not retained in the public portfolio version. The current implementation performs only local demo validation, sends no payment-card data externally, and stores only the final four digits briefly for display on the success page.
 
 ## Further Improvements
 
-Potential future improvements include carrying the selected book into the checkout, adding a real basket, moving payment processing and validation to an appropriate backend/payment provider, expanding accessibility testing and adding automated browser tests. These are not current features.
+Potential future improvements include carrying the selected book into checkout, adding a basket, improving accessibility testing and adding automated browser tests. A real production checkout would require a proper backend and payment provider rather than client-side payment handling.
