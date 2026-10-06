@@ -1,0 +1,59 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background-color: #1b1b2f; color: #e0e0e0; min-height: 100vh; display: flex; flex-direction: column; }
+h1, h2, h3 { font-family: Georgia, serif; color:#e2b96f; }
+a { color: #e2b96f; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.site-header { background-color: #12122a; padding: 0 20px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid#e2b96f; box-shadow: 0 2px 10px #000000; }
+.header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.site-name { font-size: 1.3rem; font-weight: bold; color: #e2b96f; letter-spacing: 1px; }
+.main-nav { display: flex; gap: 8px; }
+.nav-link { color: #cccccc; padding: 8px 16px; border: 1px solid #3a3a5c; border-radius: 4px; font-size: 0.9rem; background-color: #1e1e3a; }
+.nav-link:hover, .nav-link.active { background-color: #e2b96f; color: #12122a; border-color: #e2b96f; text-decoration: none; }
+.hamburger { display: none; background-color: #1e1e3a; border: 1px solid #e2b96f; color: #e2b96f; font-size: 1.4rem; padding: 6px 12px; cursor: pointer; border-radius: 4px; }
+.main-content { max-width: 1100px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; }
+.page-title { font-size: 2rem; margin-bottom: 8px; padding-bottom: 10px; border-bottom: 3px solid #e2b96f; }
+.page-subtitle { color: #aaaaaa; margin-bottom: 24px; font-size: 1rem; }
+.book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.book-card { display: flex; gap: 16px; background-color: #252545; border: 2px solid #3a3a5c; border-radius: 8px; padding: 16px; box-shadow: 0 4px 10px #000000; }
+.book-card:hover { border-color: #e2b96f; }
+.book-image { flex-shrink: 0; width: 90px; }
+.book-image img { width: 100%; height: 130px; object-fit: cover; border-radius: 4px; display: block; }
+.book-info { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.book-title { font-size: 1rem; color: #e2b96f; }
+.book-author { font-size: 0.85rem; color: #888888; font-style: italic; }
+.book-description { font-size: 0.85rem; color: #bbbbbb; line-height: 1.5; flex: 1; }
+.book-price { font-weight: bold; font-size: 1rem; color: #e2b96f; }
+.btn-pay { display: inline-block; background-color: #e2b96f; color: #12122a; padding: 8px 18px; border-radius: 4px; font-size: 0.85rem; border: none; cursor: pointer; align-self: flex-start; }
+.btn-pay:hover { background-color: #c49a50; }
+.payment-container { max-width: 520px; background-color: #252545; border: 2px solid #3a3a5c; border-radius: 8px; padding: 32px; box-shadow: 0 4px 10px #000000; }
+.card-type-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.card-label { font-weight: bold; font-size: 0.95rem; color: #e0e0e0; }
+.card-badge { padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: white; }
+.mastercard { background-color:#cc0000; }
+.divider { border: none; border-top: 1px solid #3a3a5c; margin: 16px 0; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; font-weight: bold; margin-bottom: 6px; color: #cccccc; }
+.form-group input[type="text"], .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #3a3a5c; border-radius: 4px; font-size: 0.95rem; background-color: #1b1b2f; color: #e0e0e0; }
+.form-group input[type="text"]:focus, .form-group select:focus { border-color: #e2b96f; outline: none; }
+.expiry-row { display: flex; gap: 12px; }
+.expiry-row select { flex: 1; }
+.field-hint { font-size: 0.78rem; color: #aaaaaa; margin-top: 4px; }
+.error-msg { display: none; color: #ff5555; font-size: 0.82rem; margin-top: 4px; }
+.error-box { display: none; background-color: #2a0000; border: 1px solid #ff5555; border-radius: 4px; padding: 10px 14px; color: #ff5555; font-size: 0.88rem; margin-bottom: 16px; }
+.btn-continue { display: block; width: 100%; background-color: #e2b96f; color: #12122a; padding: 12px; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; font-weight: bold; text-align: center; }
+.btn-continue:hover { background-color:#c49a50; }
+.btn-back { display: block; margin-top: 20px; text-decoration: none; }
+.success-message { font-size: 1rem; color: #4caf50; margin-bottom: 16px; font-weight: bold; }
+.masked-card { font-size: 0.95rem; color: #aaaaaa; letter-spacing: 3px; }
+.site-footer { background-color: #12122a; color: #555577; text-align: center; padding: 20px; font-size: 0.85rem; border-top: 1px solid #3a3a5c; margin-top: auto; }
+@media (max-width: 768px) {
+    .book-grid { grid-template-columns: 1fr; }
+    .hamburger { display: block; }
+    .main-nav { display: none; position: absolute; top: 64px; right: 0; background-color: #12122a; width: 200px; flex-direction: column; padding: 12px; gap: 4px; border-left: 2px solid #e2b96f; z-index: 99; }
+    .main-nav.open { display: flex; }
+    .book-card { flex-direction: column; }
+    .book-image { width: 100%; }
+    .book-image img { height: 200px; }
+    .payment-container { padding: 20px; }
+    .expiry-row { flex-direction: column; }
+}
