@@ -7,61 +7,125 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+
+
     <header class="site-header">
         <div class="header-inner">
+
             <span class="site-name">Books2Advance</span> 
-            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">&#9776;</button>
+
+            
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+                <!-- make use of hamburger button again-->
+                &#9776; 
+                <!--HTML for icon-->
+            </button>
+
             <nav class="main-nav" id="mainNav"> 
+                <!--For showing and hiding on mobile-->
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="#" class="nav-link">About Us</a>
                 <a href="#" class="nav-link">Contact Us</a>
             </nav>
+
         </div>
     </header>
+
+
+
     <main class="main-content">
+
         <h1 class="page-title">Payment Options</h1> 
+
         <div class="payment-container"> 
+            <!--payment form-->
+
             <div class="card-type-row"> 
                 <span class="card-label">Debit / Credit Card</span>
                 <span class="card-badge mastercard">MC</span>
+                <span class="card-badge visa">VISA</span> 
             </div>
+
             <hr class="divider"> 
-            <p class="field-hint"><strong>Demo checkout:</strong> use test card details only. This student project sends the form to an MMU teaching API and is not a production payment system.</p>
+            <!--hr = visual seperator-->
+
             <form id="paymentForm" onsubmit="return validateForm()">
+                <!--from stack overflow-->
+
+
+
+                <!--CARD NUMBER -->
                 <div class="form-group"> 
-                    <label for="cardNumber">Card Number</label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="Test Mastercard number" maxlength="16" inputmode="numeric" autocomplete="off">
-                    <span class="error-msg" id="cardNumberError"></span>
+                    <label for="cardNumber">Card Number</label> <!-- label describes the input. for="cardNumber" links it to the input below — clicking the label focuses the input -->
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="16-digit card number" maxlength="16" autocomplete="cc-number"> <!-- Single line input — comments must NOT go inside the opening tag or the browser breaks -->
+                    <span class="error-msg" id="cardNumberError"></span> <!-- Hidden span — JS puts an error message here and makes it visible if validation fails -->
                 </div>
+
+
+
+                <!--EXPIRY DATE-->
                 <div class="form-group">
                     <label>Expiration Date</label>
                     <div class="expiry-row">
+
+
+                
                         <select id="expMonth" name="expMonth">
                             <option value="">Month</option> 
-                            <option value="1">01 - January</option><option value="2">02 - February</option>
-                            <option value="3">03 - March</option><option value="4">04 - April</option>
-                            <option value="5">05 - May</option><option value="6">06 - June</option>
-                            <option value="7">07 - July</option><option value="8">08 - August</option>
-                            <option value="9">09 - September</option><option value="10">10 - October</option>
-                            <option value="11">11 - November</option><option value="12">12 - December</option>
+                            <option value="1">01 - January</option> 
+                            <option value="2">02 - February</option>
+                            <option value="3">03 - March</option>
+                            <option value="4">04 - April</option>
+                            <option value="5">05 - May</option>
+                            <option value="6">06 - June</option>
+                            <option value="7">07 - July</option>
+                            <option value="8">08 - August</option>
+                            <option value="9">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
                         </select>
-                        <select id="expYear" name="expYear"><option value="">Year</option></select>
+
+                        <select id="expYear" name="expYear">
+                            <!--this adds year options automatically -->
+                            <option value="">Year</option>
+                        </select>
+
                     </div>
                     <span class="error-msg" id="expiryError"></span> 
+                    <!--hidden for expiry fields error-->
                 </div>
+
+
+
+                <!--SECURITY CODE-->
                 <div class="form-group">
                     <label for="cvv">Security Code</label> 
-                    <input type="text" id="cvv" name="cvv" placeholder="Test CVV" maxlength="4" inputmode="numeric" autocomplete="off"> 
+                    <input type="text" id="cvv" name="cvv" placeholder="CVV" maxlength="4" autocomplete="cc-csc"> 
                     <p class="field-hint">(3-4 digit code normally on the back of your card)</p>
                     <span class="error-msg" id="cvvError"></span> 
+                    <!--hidden fo the CVV field error-->
                 </div>
+
                 <div class="error-box" id="generalError"></div>
+
                 <button type="submit" class="btn-continue">Continue</button>
+
             </form>
+
         </div> 
+
     </main>
-    <footer class="site-footer"><p>&copy; 2026 Books2Advance. All rights reserved.</p></footer>
+
+
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Books2Advance. All rights reserved.</p>
+    </footer>
+
     <script src="js/nav.js"></script>
     <script src="js/payment.js"></script>
+
 </body>
 </html>
